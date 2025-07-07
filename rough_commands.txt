@@ -1,0 +1,3 @@
+conda env list --- list all the environmets variables available in ur machine.
+conda env remove -n <env name> --- delete the env
+conda create -n <env name> python 3.10 -y
