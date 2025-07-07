@@ -1,3 +1,9 @@
 conda env list --- list all the environmets variables available in ur machine.
 conda env remove -n <env name> --- delete the env
 conda create -n <env name> python 3.10 -y
+
+
+git init --- to initialize the git repo
+git add . --- to add all the files into git to commit
+git commit -m "comment" --- to commit changes to local repo
+git push origin main --- to push changes into main branch
