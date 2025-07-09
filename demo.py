@@ -4,6 +4,7 @@ import sys
 from src.exception import MyException
 # below code is to check the exception config
 from src.logger import logging
+from src.pipline.training_pipeline import TrainPipeline
 
 # logging.debug("This is a debug message.")
 # logging.info("This is an info message.")
@@ -15,8 +16,13 @@ from src.logger import logging
 #---------------------------------------------------------------------
 
 
-try:
-    a = 1+'Z'
-except Exception as e:
-    logging.info(e)
-    raise MyException(e, sys) from e
+# try:
+#     a = 1+'Z'
+# except Exception as e:
+#     logging.info(e)
+#     raise MyException(e, sys) from e
+
+
+
+pipeline = TrainPipeline()
+pipeline.run_pipeline()
