@@ -1,17 +1,17 @@
 columns:
+  - _id
   - LIMIT_BAL: int
-  - SEX: category
+  - SEX: int
   - EDUCATION: int
   - MARRIAGE: int
-  - AGE: float
+  - AGE: int
   - PAY_0: int
-  - PAY_2: category
-  - PAY_3: category
-  - PAY_4: float
-  - PAY_5: float
+  - PAY_2: int
+  - PAY_3: int
+  - PAY_4: int
+  - PAY_5: int
   - PAY_6: int
   - BILL_AMT1: int
-  - BILL_AMT1: int 
   - BILL_AMT2: int
   - BILL_AMT3: int
   - BILL_AMT4: int
@@ -28,7 +28,7 @@ columns:
 
 
 numerical_columns:
-  LIMIT_BAL
+  - LIMIT_BAL
   - SEX
   - EDUCATION
   - MARRIAGE
@@ -50,17 +50,31 @@ numerical_columns:
   - PAY_AMT2
   - PAY_AMT3
   - PAY_AMT4
-  - PAY_AMT5s
+  - PAY_AMT5
   - PAY_AMT6
   - default
+
+categorical_columns:
+  []
 
 drop_columns: _id
 
 # for data transformation
 num_features:
-  - Age
-  - Vintage
-
+  - AGE
+  - BILL_AMT1
+  - BILL_AMT1 
+  - BILL_AMT2
+  - BILL_AMT3
+  - BILL_AMT4
+  - BILL_AMT5
+  - BILL_AMT6
+  - PAY_AMT1
+  - PAY_AMT2
+  - PAY_AMT3
+  - PAY_AMT4
+  - PAY_AMT5
+  - PAY_AMT6
 
 mm_columns:
-  - Annual_Premium
+  []
