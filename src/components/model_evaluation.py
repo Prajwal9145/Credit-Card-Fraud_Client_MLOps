@@ -10,7 +10,7 @@ from src.entity.artifact_entity import (DataIngestionArtifact,
                                         ModelEvaluationArtifact,
                                         ModelTrainerArtifact)
 from src.entity.config_entity import ModelEvaluationConfig
-#from src.entity.s3_estimator import Proj1Estimator
+from src.entity.s3_estimator import CreditCardsEstimator
 from src.exception import MyException
 from src.logger import logging
 from src.utils.main_utils import load_object
@@ -35,7 +35,7 @@ class ModelEvaluation:
         except Exception as e:
             raise MyException(e, sys) from e
 
-    def get_best_model(self) -> Optional[Proj1Estimator]:
+    def get_best_model(self) -> Optional[CreditCardsEstimator]:
         """
         Method Name :   get_best_model
         Description :   This function is used to get model from production stage.
@@ -46,11 +46,11 @@ class ModelEvaluation:
         try:
             bucket_name = self.model_eval_config.bucket_name
             model_path=self.model_eval_config.s3_model_key_path
-            proj1_estimator = Proj1Estimator(bucket_name=bucket_name,
+            creditcard_estimator = CreditCardsEstimator(bucket_name=bucket_name,
                                                model_path=model_path)
 
-            if proj1_estimator.is_model_present(model_path=model_path):
-                return proj1_estimator
+            if creditcard_estimator.is_model_present(model_path=model_path):
+                return creditcard_estimator
             return None
         except Exception as e:
             raise  MyException(e,sys)
@@ -101,10 +101,10 @@ class ModelEvaluation:
 
             logging.info("Test data loaded and now transforming it for prediction...")
 
-            x = self._map_gender_column(x)
-            x = self._drop_id_column(x)
-            x = self._create_dummy_columns(x)
-            x = self._rename_columns(x)
+            # x = self._map_gender_column(x)
+            # x = self._drop_id_column(x)
+            # x = self._create_dummy_columns(x)
+            # x = self._rename_columns(x)
 
             trained_model = load_object(file_path=self.model_trainer_artifact.trained_model_file_path)
             logging.info("Trained model loaded/exists.")
